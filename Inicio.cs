@@ -1,4 +1,5 @@
-﻿using FontAwesome.Sharp;
+﻿using CapaEntidades;
+using FontAwesome.Sharp;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,8 +16,13 @@ namespace SistemaGestion
     {
         private static IconMenuItem menuActivo;
         private static Form formularioActivo;
-        public Inicio()
+        private static Usuario usuarioActual;
+        public Inicio(Usuario objUsuario)
         {
+            Environment.SetEnvironmentVariable("usuario", objUsuario.nombre);
+            
+
+            usuarioActual = objUsuario;
             InitializeComponent();
         }
         private void AbrirFormulario(IconMenuItem menu, Form formulario)
@@ -45,6 +51,8 @@ namespace SistemaGestion
         }
         private void Inicio_Load(object sender, EventArgs e)
         {
+            lblNombreUsuario.Text = Environment.GetEnvironmentVariable("usuario");
+            
 
         }
 
@@ -79,6 +87,11 @@ namespace SistemaGestion
         private void MenuProductosVendidos_Click(object sender, EventArgs e)
         {
             AbrirFormulario((IconMenuItem)sender, new frmProductosVendidos());
+        }
+
+        private void menuTitulo_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }

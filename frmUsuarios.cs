@@ -10,18 +10,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaNegocio;
+using CapaDatos;
+
 namespace SistemaGestion
 {
     public partial class frmUsuarios : Form
     {
+        private string conexion = Conexion.ObtenerCadenaConexion();
         public frmUsuarios()
         {
             InitializeComponent();
         }
         private void CargarLista()
         {
+
             dgvData.Rows.Clear();
-            List<Usuario> listaUsuario = new CN_Usuario().ListarUsuarios();
+            List<Usuario> listaUsuario = new CN_Usuario().ListarUsuarios(conexion);
 
             foreach (Usuario item in listaUsuario)
             {
@@ -80,8 +84,9 @@ namespace SistemaGestion
                 if (indice >= 0)
                 {
                     txtIndice.Text = indice.ToString();
+
                     txtUsuarioSeleccionado.Text = dgvData.Rows[indice].Cells["Nombre"].Value.ToString() + "  " + dgvData.Rows[indice].Cells["Apellido"].Value.ToString();
-                    txtMail.Text = dgvData.Rows[indice].Cells["Id"].Value.ToString();
+                    txtIdUsuario.Text = dgvData.Rows[indice].Cells["Id"].Value.ToString();
                     txtNombre.Text = dgvData.Rows[indice].Cells["Nombre"].Value.ToString();
                     txtApellido.Text = dgvData.Rows[indice].Cells["Apellido"].Value.ToString();
                     txtNombreUsuario.Text = dgvData.Rows[indice].Cells["NombreUsuario"].Value.ToString();
@@ -130,7 +135,7 @@ namespace SistemaGestion
 
             if (txtIdUsuario.Text == "0")
             {
-                CN_Usuario.CrearUsuario(objUsuario);
+                CN_Usuario.CrearUsuario(objUsuario, conexion);
 
 
 
@@ -148,7 +153,7 @@ namespace SistemaGestion
 
                 if (txtIdUsuario.Text != "0")
                 {
-                    CN_Usuario.ModificarUsuario(objUsuario);
+                    CN_Usuario.ModificarUsuario(objUsuario, conexion);
                     DataGridViewRow row = dgvData.Rows[Convert.ToInt32(txtIndice.Text)];
                     row.Cells["Id"].Value = txtIdUsuario.Text;
                     row.Cells["Nombre"].Value = txtNombre.Text;
@@ -190,14 +195,14 @@ namespace SistemaGestion
 
                     };
 
-                    CN_Usuario.EliminarUsuario(objUsuario);
+                    CN_Usuario.EliminarUsuario(objUsuario, conexion);
 
 
 
                     dgvData.Rows.RemoveAt(Convert.ToInt32(txtIndice.Text));
                     txtIndice.Text = "-1";
                     txtIdUsuario.Text = "0";
-
+                    Limpiar();
 
 
 

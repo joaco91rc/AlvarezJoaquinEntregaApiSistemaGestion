@@ -67,3 +67,4 @@ C:\Users\jaalvarez\Documents\Joaco\SistemaGestion\SistemaGestion\obj\Debug\net6.
 C:\Users\jaalvarez\Documents\Joaco\SistemaGestion\SistemaGestion\obj\Debug\net6.0-windows\SistemaGestion.frmProductosVendidos.resources
 C:\Users\jaalvarez\Documents\Joaco\SistemaGestion\SistemaGestion\obj\Debug\net6.0-windows\SistemaGestion.frmVentas.resources
 C:\Users\jaalvarez\Documents\Joaco\SistemaGestion\SistemaGestion\obj\Debug\net6.0-windows\SistemaGestion.Inicio.resources
+C:\Users\jaalvarez\Documents\Joaco\SistemaGestion\SistemaGestion\obj\Debug\net6.0-windows\SistemaGestion.frmLogin.resources

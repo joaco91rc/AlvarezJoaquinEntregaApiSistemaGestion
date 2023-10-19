@@ -16,6 +16,7 @@ namespace SistemaGestion
 {
     public partial class frmProducto : Form
     {
+        private string conexion = Conexion.ObtenerCadenaConexion();
         public frmProducto()
         {
             InitializeComponent();
@@ -24,7 +25,7 @@ namespace SistemaGestion
         private void CargarLista()
         {
             dgvData.Rows.Clear();
-            List<Producto> listaProducto = new CN_Producto().ListarProductos();
+            List<Producto> listaProducto = new CN_Producto().ListarProductos(conexion);
             dgvData.Columns["Costo"].DefaultCellStyle.Format = "N2";
             dgvData.Columns["PrecioVenta"].DefaultCellStyle.Format = "N2";
             foreach (Producto item in listaProducto)
@@ -132,7 +133,7 @@ namespace SistemaGestion
             if (txtIdProducto.Text == "0")
             {
 
-                CN_Producto.CrearProducto(objProducto);
+                CN_Producto.CrearProducto(objProducto, conexion);
 
 
 
@@ -146,7 +147,7 @@ namespace SistemaGestion
             else
             {
 
-                CN_Producto.ModificarProducto(objProducto);
+                CN_Producto.ModificarProducto(objProducto, conexion);
                 if (txtIdProducto.Text != "0")
                 {
                     DataGridViewRow row = dgvData.Rows[Convert.ToInt32(txtIndice.Text)];
@@ -190,7 +191,7 @@ namespace SistemaGestion
 
                     };
 
-                    ProductoData.EliminarProducto(objProducto);
+                    ProductoData.EliminarProducto(objProducto, conexion);
 
 
 

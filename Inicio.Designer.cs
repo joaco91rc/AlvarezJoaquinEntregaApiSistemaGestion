@@ -41,6 +41,8 @@
             label1 = new Label();
             contenedor = new Panel();
             menuTitulo = new MenuStrip();
+            label2 = new Label();
+            lblNombreUsuario = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)iconPictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btnMinimizar).BeginInit();
@@ -51,6 +53,8 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(8, 83, 150);
+            panel1.Controls.Add(lblNombreUsuario);
+            panel1.Controls.Add(label2);
             panel1.Controls.Add(iconPictureBox1);
             panel1.Controls.Add(btnMinimizar);
             panel1.Location = new Point(0, 0);
@@ -191,6 +195,29 @@
             menuTitulo.Name = "menuTitulo";
             menuTitulo.Size = new Size(1350, 163);
             menuTitulo.TabIndex = 5;
+            menuTitulo.ItemClicked += menuTitulo_ItemClicked;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(12, 9);
+            label2.Name = "label2";
+            label2.Size = new Size(101, 21);
+            label2.TabIndex = 2;
+            label2.Text = "Bienvenido:";
+            // 
+            // lblNombreUsuario
+            // 
+            lblNombreUsuario.AutoSize = true;
+            lblNombreUsuario.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lblNombreUsuario.ForeColor = Color.White;
+            lblNombreUsuario.Location = new Point(138, 9);
+            lblNombreUsuario.Name = "lblNombreUsuario";
+            lblNombreUsuario.Size = new Size(136, 21);
+            lblNombreUsuario.TabIndex = 3;
+            lblNombreUsuario.Text = "Nombre Usuario";
             // 
             // Inicio
             // 
@@ -212,6 +239,7 @@
             Text = "Inicio";
             Load += Inicio_Load;
             panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)iconPictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)btnMinimizar).EndInit();
             menu.ResumeLayout(false);
@@ -235,5 +263,7 @@
         private Label label1;
         private Panel contenedor;
         private MenuStrip menuTitulo;
+        private Label lblNombreUsuario;
+        private Label label2;
     }
 }

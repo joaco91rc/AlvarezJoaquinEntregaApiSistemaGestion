@@ -30,15 +30,15 @@
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             txtIdUsuario = new Label();
-            IdUsuario = new DataGridViewTextBoxColumn();
-            Stock = new DataGridViewTextBoxColumn();
-            PrecioVenta = new DataGridViewTextBoxColumn();
-            Costo = new DataGridViewTextBoxColumn();
-            Descripciones = new DataGridViewTextBoxColumn();
-            Id = new DataGridViewTextBoxColumn();
-            btnSeleccionar = new DataGridViewButtonColumn();
             txtIndice = new Label();
             dgvData = new DataGridView();
+            btnSeleccionar = new DataGridViewButtonColumn();
+            Id = new DataGridViewTextBoxColumn();
+            Nombre = new DataGridViewTextBoxColumn();
+            Apellido = new DataGridViewTextBoxColumn();
+            NombreUsuario = new DataGridViewTextBoxColumn();
+            Contrasenia = new DataGridViewTextBoxColumn();
+            Mail = new DataGridViewTextBoxColumn();
             btnLimpiar = new FontAwesome.Sharp.IconButton();
             btnBuscar = new FontAwesome.Sharp.IconButton();
             txtBusqueda = new TextBox();
@@ -76,54 +76,7 @@
             txtIdUsuario.Size = new Size(15, 17);
             txtIdUsuario.TabIndex = 52;
             txtIdUsuario.Text = "0";
-            txtIdUsuario.Visible = false;
             txtIdUsuario.TextChanged += txtIdUsuario_TextChanged;
-            // 
-            // IdUsuario
-            // 
-            IdUsuario.HeaderText = "ID USUARIO";
-            IdUsuario.Name = "IdUsuario";
-            IdUsuario.ReadOnly = true;
-            // 
-            // Stock
-            // 
-            Stock.HeaderText = "STOCK";
-            Stock.Name = "Stock";
-            Stock.ReadOnly = true;
-            // 
-            // PrecioVenta
-            // 
-            PrecioVenta.HeaderText = "PRECIO VENTA";
-            PrecioVenta.Name = "PrecioVenta";
-            PrecioVenta.ReadOnly = true;
-            // 
-            // Costo
-            // 
-            Costo.HeaderText = "COSTO";
-            Costo.Name = "Costo";
-            Costo.ReadOnly = true;
-            // 
-            // Descripciones
-            // 
-            Descripciones.HeaderText = "DESCRIPCION";
-            Descripciones.Name = "Descripciones";
-            Descripciones.ReadOnly = true;
-            Descripciones.Width = 180;
-            // 
-            // Id
-            // 
-            Id.HeaderText = "ID PRODUCTO";
-            Id.Name = "Id";
-            Id.ReadOnly = true;
-            // 
-            // btnSeleccionar
-            // 
-            btnSeleccionar.HeaderText = "";
-            btnSeleccionar.Name = "btnSeleccionar";
-            btnSeleccionar.ReadOnly = true;
-            btnSeleccionar.Resizable = DataGridViewTriState.True;
-            btnSeleccionar.SortMode = DataGridViewColumnSortMode.Automatic;
-            btnSeleccionar.Width = 30;
             // 
             // txtIndice
             // 
@@ -136,7 +89,6 @@
             txtIndice.Size = new Size(20, 17);
             txtIndice.TabIndex = 51;
             txtIndice.Text = "-1";
-            txtIndice.Visible = false;
             // 
             // dgvData
             // 
@@ -144,7 +96,7 @@
             dgvData.BackgroundColor = Color.FromArgb(50, 50, 50);
             dgvData.BorderStyle = BorderStyle.None;
             dgvData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvData.Columns.AddRange(new DataGridViewColumn[] { btnSeleccionar, Id, Descripciones, Costo, PrecioVenta, Stock, IdUsuario });
+            dgvData.Columns.AddRange(new DataGridViewColumn[] { btnSeleccionar, Id, Nombre, Apellido, NombreUsuario, Contrasenia, Mail });
             dgvData.Cursor = Cursors.Hand;
             dgvData.GridColor = Color.White;
             dgvData.Location = new Point(558, 177);
@@ -158,6 +110,53 @@
             dgvData.TabIndex = 50;
             dgvData.CellContentClick += dgvData_CellContentClick;
             dgvData.CellPainting += dgvData_CellPainting;
+            // 
+            // btnSeleccionar
+            // 
+            btnSeleccionar.HeaderText = "";
+            btnSeleccionar.Name = "btnSeleccionar";
+            btnSeleccionar.ReadOnly = true;
+            btnSeleccionar.Resizable = DataGridViewTriState.True;
+            btnSeleccionar.SortMode = DataGridViewColumnSortMode.Automatic;
+            btnSeleccionar.Width = 30;
+            // 
+            // Id
+            // 
+            Id.HeaderText = "ID USUARIO";
+            Id.Name = "Id";
+            Id.ReadOnly = true;
+            // 
+            // Nombre
+            // 
+            Nombre.HeaderText = "NOMBRE";
+            Nombre.Name = "Nombre";
+            Nombre.ReadOnly = true;
+            Nombre.Width = 180;
+            // 
+            // Apellido
+            // 
+            Apellido.HeaderText = "APELLIDO";
+            Apellido.Name = "Apellido";
+            Apellido.ReadOnly = true;
+            // 
+            // NombreUsuario
+            // 
+            NombreUsuario.HeaderText = "USUARIO";
+            NombreUsuario.Name = "NombreUsuario";
+            NombreUsuario.ReadOnly = true;
+            // 
+            // Contrasenia
+            // 
+            Contrasenia.HeaderText = "CONTRASEÑA";
+            Contrasenia.Name = "Contrasenia";
+            Contrasenia.ReadOnly = true;
+            Contrasenia.Visible = false;
+            // 
+            // Mail
+            // 
+            Mail.HeaderText = "MAIL";
+            Mail.Name = "Mail";
+            Mail.ReadOnly = true;
             // 
             // btnLimpiar
             // 
@@ -338,7 +337,6 @@
             // 
             // txtContrasenia
             // 
-            txtContrasenia.CharacterCasing = CharacterCasing.Upper;
             txtContrasenia.Location = new Point(195, 289);
             txtContrasenia.Name = "txtContrasenia";
             txtContrasenia.Size = new Size(192, 23);
@@ -481,13 +479,6 @@
         #endregion
 
         private Label txtIdUsuario;
-        private DataGridViewTextBoxColumn IdUsuario;
-        private DataGridViewTextBoxColumn Stock;
-        private DataGridViewTextBoxColumn PrecioVenta;
-        private DataGridViewTextBoxColumn Costo;
-        private DataGridViewTextBoxColumn Descripciones;
-        private DataGridViewTextBoxColumn Id;
-        private DataGridViewButtonColumn btnSeleccionar;
         private Label txtIndice;
         private DataGridView dgvData;
         private FontAwesome.Sharp.IconButton btnLimpiar;
@@ -513,5 +504,12 @@
         private Label label4;
         private Label label2;
         private Label label1;
+        private DataGridViewButtonColumn btnSeleccionar;
+        private DataGridViewTextBoxColumn Id;
+        private DataGridViewTextBoxColumn Nombre;
+        private DataGridViewTextBoxColumn Apellido;
+        private DataGridViewTextBoxColumn NombreUsuario;
+        private DataGridViewTextBoxColumn Contrasenia;
+        private DataGridViewTextBoxColumn Mail;
     }
 }
